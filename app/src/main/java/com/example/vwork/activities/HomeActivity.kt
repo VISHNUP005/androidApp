@@ -1,16 +1,10 @@
 package com.example.vwork.activities
-
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
 import com.example.vwork.R
-import com.example.vwork.fragments.DailyNotesFragment
-import com.example.vwork.fragments.TechNotesFragment
-import com.google.android.material.tabs.TabLayout
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -18,29 +12,15 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val viewPager = findViewById<ViewPager>(R.id.viewPager)
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
+        val btnNote = findViewById<Button>(R.id.btnNote)
+        val btnChat = findViewById<Button>(R.id.btnChat)
 
-        viewPager.adapter = object : FragmentPagerAdapter(
-            supportFragmentManager,
-            BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
-        ) {
-            override fun getItem(position: Int): Fragment {
-                return if (position == 0) TechNotesFragment() else DailyNotesFragment()
-            }
-
-            override fun getCount(): Int = 2
-
-            override fun getPageTitle(position: Int): CharSequence {
-                return if (position == 0) "Tech Notes" else "Daily Notes"
-            }
+        btnNote.setOnClickListener {
+            startActivity(Intent(this, HomeNoteActivity::class.java))
         }
 
-        tabLayout.setupWithViewPager(viewPager)
-
-        findViewById<View>(R.id.chatButton).setOnClickListener {
-            // Replace with your actual chat activity
-            // startActivity(Intent(this, ChatListActivity::class.java))
+        btnChat.setOnClickListener {
+            startActivity(Intent(this, HomeChatActivity::class.java))
         }
     }
 }

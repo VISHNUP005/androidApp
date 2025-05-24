@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">v Work</string>
+    <string name="app_name">Note</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chat_btn">Chat</string>
+    <string name="tab_selector_for_tech_and_daily_notes">Tab selector for Tech and Daily notes</string>
+    <string name="go_to_notes">Take Notes</string>
+    <string name="go_to_chat">Chat Now</string>
 </resources>
